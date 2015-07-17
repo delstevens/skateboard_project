@@ -1,7 +1,7 @@
 require 'csv'
 
 class Quiver
-  attr_reader :skateboards_array
+  attr_accessor :skateboards_array
   def initialize(file_name)
     @skateboards_array = []
       file_name += ".csv"
@@ -14,14 +14,14 @@ class Quiver
   end
 
   def next_action(in_char, cur_count)
-    if in_char == "N"
+    if in_char.downcase == "n"
       if cur_count >= @skateboards_array.length-2
         return 0
       else
         return cur_count +=1
       end
     else
-      if cur_count <= 1
+      if cur_count <= 0
         cur_count = @skateboards_array.length-1
       else
         cur_count -=1
@@ -31,6 +31,7 @@ class Quiver
   end
 
   def search_by_price(max_price)
+
     return_array = []
     for i in 0..@skateboards_array.length-1
       if @skateboards_array[i].cost[1..@skateboards_array[i].cost.length-1].to_i < max_price
@@ -46,8 +47,8 @@ class Quiver
       @name = arg1
       @cost = arg2
       @length = arg3
-      @truck_mount = arg4
-      @wheel_size = arg5
+      @wheel_size = arg4
+      @truck_mount = arg5
     end
 
   end

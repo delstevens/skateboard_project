@@ -17,17 +17,23 @@ board_database = Controller.new
 
 
 showing = 0
-reveal_response = board_database.board_show.render_skateboard(board_database.quiver.skateboards_array[showing])
+reveal_response = ""
+
+board_database.board_show.render_intro
 while reveal_response.downcase != "x"
   reveal_response = board_database.board_show.render_skateboard(board_database.quiver.skateboards_array[showing])
+  if reveal_response.downcase == "s"
+    board_database.quiver.skateboards_array = board_database.quiver.search_by_price(board_database.board_show.render_search_query)
+    reveal_response = board_database.board_show.render_skateboard(board_database.quiver.skateboards_array[0])
+  end
   showing = board_database.quiver.next_action(reveal_response,showing)
-  p showing
 end
+
+
 
 #TODO
 #generate an array from a search query
 #page thnrough array using Next and Previous
-#this_array = search_by_price(200)
 
 
 
