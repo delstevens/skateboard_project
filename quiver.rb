@@ -1,7 +1,7 @@
 require 'csv'
 
 class Quiver
-  attr_reader :skateboards_array
+  attr_accessor :skateboards_array
   def initialize(file_name)
     @skateboards_array = []
       file_name += ".csv"
@@ -14,7 +14,7 @@ class Quiver
   end
 
   def next_action(in_char, cur_count)
-    if in_char == "N"
+    if in_char.downcase == "n"
       if cur_count >= @skateboards_array.length-2
         return 0
       else
