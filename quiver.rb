@@ -13,6 +13,23 @@ class Quiver
       end
   end
 
+  def next_action(in_char, cur_count)
+    if in_char == "N"
+      if cur_count >= @skateboards_array.length-2
+        return 0
+      else
+        return cur_count +=1
+      end
+    else
+      if cur_count <= 1
+        cur_count = @skateboards_array.length-1
+      else
+        cur_count -=1
+      end
+
+    end
+  end
+
   def search_by_price(max_price)
     return_array = []
     for i in 0..@skateboards_array.length-1
@@ -27,8 +44,8 @@ class Quiver
     attr_reader :name, :length, :cost, :truck_mount, :wheel_size
     def initialize(arg1,arg2,arg3,arg4,arg5)
       @name = arg1
-      @length = arg2
-      @cost = arg3
+      @cost = arg2
+      @length = arg3
       @truck_mount = arg4
       @wheel_size = arg5
     end
