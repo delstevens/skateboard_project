@@ -46,8 +46,8 @@ class Quiver
       @name = arg1
       @cost = arg2
       @length = arg3
-      @truck_mount = arg4
-      @wheel_size = arg5
+      @wheel_size = arg4
+      @truck_mount = arg5
     end
 
   end
