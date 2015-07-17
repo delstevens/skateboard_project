@@ -7,7 +7,7 @@ class Controller
   attr_reader :quiver, :board_show
 
   def initialize
-    @quiver = Quiver.new("skateboardsimple")
+    @quiver = Quiver.new("skateboards")
     @board_show = View.new
   end
 
