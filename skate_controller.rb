@@ -19,7 +19,7 @@ board_database = Controller.new
 showing = 0
 reveal_response = ""
 
-#board_database.board_show.render_intro
+board_database.board_show.render_intro
 while reveal_response.downcase != "x"
   reveal_response = board_database.board_show.render_skateboard(board_database.quiver.skateboards_array[showing])
   if reveal_response.downcase == "s"

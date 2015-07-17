@@ -21,7 +21,7 @@ class Quiver
         return cur_count +=1
       end
     else
-      if cur_count <= 1
+      if cur_count <= 0
         cur_count = @skateboards_array.length-1
       else
         cur_count -=1

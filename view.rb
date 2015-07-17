@@ -7,6 +7,13 @@ class View
     return gets.chomp
   end
 
+def render_intro
+end
+
+  def render_search_query
+    return 150
+  end
+
   def render_deck(length)
     return "▀▀▀▀▀" + ("█"*(length/1.2)) + "▀▀▀▀▀"
   end
@@ -17,6 +24,7 @@ class View
   end
 
   def render name, length, cost, deck, wheels
+    #system "clear"
     puts "************************************************"
     puts "       Model: #{name}                         "
     puts "       Length: #{length} inches                      "
